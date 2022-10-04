@@ -9,7 +9,8 @@ export default function PostCreate() {
     const submit = async (e) => {
         e.preventDefault();
 
-        const res = await axios.post("http://localhost:4000/posts", {title})
+        // const res = await axios.post("http://localhost:4000/posts", {title})
+        const res = await axios.post("http://posts.com/posts/create", {title})
         // console.log(res)
         alert();
         setTitle("")
