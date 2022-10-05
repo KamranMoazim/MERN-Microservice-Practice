@@ -1,5 +1,16 @@
 import express from "express"
+import "express-async-errors"
+
 import {json} from "body-parser"
+
+import {currentUserRouter} from "./routes/current-user"
+import {signinRouter} from "./routes/signin"
+import {signoutRouter} from "./routes/signout"
+import {signupRouter} from "./routes/signup"
+import { errorHanlder } from "./middleware/error-handler"
+import { NotFoundError } from "./errors/not-found-error"
+
+
 
 const PORT = 3000;
 
@@ -7,9 +18,17 @@ const app = express();
 app.use(json())
 
 
-app.get("/api/users/currentuser", (req, res) => {
-    res.send("Hello!!!")
+app.use(currentUserRouter)
+app.use(signinRouter)
+app.use(signoutRouter)
+app.use(signupRouter)
+
+app.all("*", async () => {
+    throw new NotFoundError();
 })
+
+app.use(errorHanlder)
+
 
 
 app.listen(PORT, () => {
