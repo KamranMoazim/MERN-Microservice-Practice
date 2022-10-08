@@ -21,7 +21,5 @@ export default ({req}) => {
     return axios.create({
         baseURL: "/"
     });
-    
   }
-
 }
