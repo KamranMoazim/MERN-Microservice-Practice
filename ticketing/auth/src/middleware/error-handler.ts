@@ -6,7 +6,8 @@ export const errorHanlder = async (err:Error, req:Request, res:Response, next:Ne
 
     if (err instanceof CustomError) {
         return res.status(err.statusCode).send({errors: err.serializeErrors()})
+        // return res.send({errors: err.serializeErrors()})
     }
-
-    res.status(400).send({errors: [{message:"something went wrong"}]})
+    
+    return res.status(400).send({errors: [{message:"something went wrong"}]})
 }

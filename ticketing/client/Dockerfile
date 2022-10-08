@@ -2,9 +2,9 @@ FROM node:alpine
 
 WORKDIR /app
 COPY package.json .
-RUN npm install --omit=dev
+RUN npm install
 COPY . .
 
 EXPOSE 3000/tcp
 
-CMD ["npm", "start"]
+CMD ["npm", "run", "dev"]
