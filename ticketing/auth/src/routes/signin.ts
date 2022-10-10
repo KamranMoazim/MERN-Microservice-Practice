@@ -19,9 +19,8 @@ router.post("/api/users/signin", [
     body("password")
         .trim()
         .notEmpty()
-        .withMessage("You must suppply password"),
-        validateRequest,
-], async (req:Request, res:Response) => {
+        .withMessage("You must suppply password")
+], validateRequest, async (req:Request, res:Response) => {
 
     
     const {email, password} = req.body;

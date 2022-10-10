@@ -18,9 +18,8 @@ router.post("/api/users/signup", [
     body("password")
         .trim()
         .isLength({min:4, max:20})
-        .withMessage("Password must be min 4 and max 20 characters long"),
-        validateRequest,
-], async (req:Request, res:Response) => {
+        .withMessage("Password must be min 4 and max 20 characters long")
+], validateRequest, async (req:Request, res:Response) => {
     
     const {email, password} = req.body;
 

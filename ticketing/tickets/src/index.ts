@@ -22,7 +22,7 @@ const startUp = async () => {
     }
     
     app.listen(PORT, () => {
-        console.log(`Auth Service Server started at port ${PORT}!`)
+        console.log(`Tickets Service Server started at port ${PORT}!`)
     });
 
 }
